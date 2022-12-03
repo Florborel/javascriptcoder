@@ -14,62 +14,76 @@ class Ejercicio {
 
     mostrarEjercicio() {
 
-       alert( this.series + "x" + this.repeticiones + " " +this.nombre + " (" + this.tipo + ")");
+       return this.series + "x" + this.repeticiones + " " +this.nombre + " (" + this.tipo + ")";
     }
-
 
 
 }
 
 let rutina = [];
 
+let miFormulario = document.querySelector("#formulario");
+let opcion = miFormulario.children[7].value;
+let nivel = miFormulario.children[5].value;
+let inputNombre = document.querySelector("#iNombre");
+let contenedor = document.querySelector("#ejercicio");
+let contenedorRutina = document.querySelector("#rutina");
 
+miFormulario.addEventListener("submit", mostrarRutina);
+btnMostrar.addEventListener("click", verRutina);
 
+inputNombre.focus();
 
-
-function seleccionTipo(){
-
- 
-   let tipo= prompt("ingrese la opcion que desea entrenar, o esc para terminar: 1. Piernas, 2. Brazos, 3. Abdominales");
-return tipo;
-
+function agregarAlDom(ejercicio){
+    contenedor.innerHTML = "<h3> Ejercicio: </h3>" +
+                            "<p>" + ejercicio + "</p>";
 }
 
- function seleccionNivel(){
 
- 
-    let nivel= prompt("seleccione su nivel: 1. principiante, 2. intermedio, 3. avanzado");
- return nivel;
+
+function verRutina(){
+
+ let rutinaResultado = localStorage.getItem("rutina");
+ for (const ejercicio of rutinaResultado){
+    contenedorRutina.innerHTML = contenedorRutina.innerHTML + " " + ejercicio.mostrarEjercicio();
+ }
+  
  
  }
 
- function mostrarRutina(opcion,nivel){
+
+
+ function mostrarRutina(){
     
     let ejercicio;
+    opcion = miFormulario.children[7].value;
+    nivel = miFormulario.children[5].value;
 
-    if (opcion==1 ) {
+    if (opcion=== "Inferior" ) {
 
          switch(nivel) {
-                case "1":
+                case "Principiante":
                     ejercicio=new Ejercicio (4,10,"sentadillas","piernas");
-                    ejercicio.mostrarEjercicio();
+                    alert(ejercicio.mostrarEjercicio());
+                    agregarAlDom(ejercicio.mostrarEjercicio());
                     rutina.push(ejercicio);
                     console.log(rutina);
+                    localstorage.setItem("rutina", rutina);
                     
                     break;
 
-                 case "2":
+                 case "Intermedio":
                     ejercicio=new Ejercicio (4,20,"sentadillas","piernas");
-                    ejercicio.mostrarEjercicio();
+                    agregarAlDom(ejercicio.mostrarEjercicio());
                     rutina.push(ejercicio);
-                    console.log(rutina);
+                    localstorage.setItem("rutina", rutina);
                     break;
 
-                case "3":
+                case "Avanzado":
                     ejercicio=new Ejercicio (4,30,"sentadillas","piernas");
-                    ejercicio.mostrarEjercicio();
+                    agregarAlDom(ejercicio.mostrarEjercicio());
                     rutina.push(ejercicio);
-                    console.log(rutina);
+                    localstorage.setItem("rutina", rutina);
                     break;
 
                     default:
@@ -80,29 +94,29 @@ return tipo;
          }
 
 
-    } else if (opcion==2){
+    } else if (opcion==="Core"){
 
         switch (nivel) {
 
-            case "1":
+            case "Principiante":
                 ejercicio=new Ejercicio (4,10,"curl de biceps","brazos");
-                ejercicio.mostrarEjercicio();
+                agregarAlDom(ejercicio.mostrarEjercicio());
                 rutina.push(ejercicio);
-                console.log(rutina);
+                localstorage.setItem("rutina", rutina);
                 break;
 
-             case "2":
+             case "Intermedio":
                 ejercicio=new Ejercicio (4,20,"curl de biceps","brazos");
-                ejercicio.mostrarEjercicio();
+                agregarAlDom(ejercicio.mostrarEjercicio());
                 rutina.push(ejercicio);
-                console.log(rutina);
+                localstorage.setItem("rutina", rutina);
                 break;
 
-            case "3":
+            case "Avanzado":
                 ejercicio=new Ejercicio (4,30,"curl de biceps","brazos");
-                ejercicio.mostrarEjercicio();
+                agregarAlDom(ejercicio.mostrarEjercicio());
                 rutina.push(ejercicio);
-                console.log(rutina);
+                localstorage.setItem("rutina", rutina);
                 break;
 
                 default:
@@ -114,29 +128,29 @@ return tipo;
 
 
     }
-    else if (opcion==3){
+    else if (opcion=== "Superior"){
 
         switch (nivel) {
 
-            case "1":
+            case "Principiante":
                 ejercicio=new Ejercicio (4,10,"abs cortos","abdominales");
-                ejercicio.mostrarEjercicio();
+                agregarAlDom(ejercicio.mostrarEjercicio());
                 rutina.push(ejercicio);
-                console.log(rutina);
+                localstorage.setItem("rutina", rutina);
                 break;
 
-             case "2":
+             case "Intermedio":
                 ejercicio=new Ejercicio (4,20,"abs cortos","abdominales");
-                ejercicio.mostrarEjercicio();
+                agregarAlDom(ejercicio.mostrarEjercicio());
                 rutina.push(ejercicio);
-                console.log(rutina);
+                localstorage.setItem("rutina", rutina);
                 break;
 
-            case "3":
+            case "Avanzado":
                 ejercicio=new Ejercicio (4,30,"abs cortos","abdominales");
-                ejercicio.mostrarEjercicio();
+                agregarAlDom(ejercicio.mostrarEjercicio());
                 rutina.push(ejercicio);
-                console.log(rutina);
+                localstorage.setItem("rutina", rutina);
                 break;
 
                 default:
@@ -154,9 +168,9 @@ return tipo;
 
  
  }
-
-let opcion="inicio";
-while(opcion!=="esc") {
+/*
+let opcion2="inicio";
+while(opcion2!=="esc") {
  
  opcion = seleccionTipo();
 
@@ -166,4 +180,4 @@ while(opcion!=="esc") {
 
     
 }
-
+*/
