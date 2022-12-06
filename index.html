@@ -4,32 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    <H1>Calculadora de rutina</H1>
-    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Et sint praesentium numquam nihil at, eum commodi vitae nostrum! Deleniti inventore suscipit eum deserunt earum magni quas ullam debitis eius voluptatum?</p>
-    <div>
-        <form id="formulario">
-            <label> Nombre:</label>
-            <input type="text" id="iNombre" value="">
-
-            <label> Edad:</label>
-            <input type="text" value="">
-
-            <label> Nivel (Principiante  | Intermedio | Avanzado):</label>
-            <input type="text" value="">
-
-            <label> Tren ( Inferior | Core | Superior ):</label>
-            <input type="text" value="">
-
-            <div id="botones">
-                <input type="submit" id="btnSubmit" value="Confirmar Ejercicio"></input>
-                <input type="button" id="btnMostrar" value="Ver Rutina"></input>
+    <div class="container text-center">
+        <div class="row">
+          <div class="col col-md-4">
+          
+          </div>
+          <div class="col col-md-4">
+            <H1>Calculadora de rutina</H1>
+          </div>
+          <div class="col col-md-4">
+          
+          </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-1">
+            
             </div>
+            <div class="col col-md-10">
+                <p> Bienvenido, acá podrás calcular tu rutina online, según tu nivel de entrenamiento.</p>
+                <p>Para empezar colocá tus datos en el formulario, y luego escribí tu nivel (Principiante, Intermedio o Avanzado). Continuá definiendo el sector (tren) a entrenar (Inferior, Core o Superior) y por cada uno presioná el boton "confirmar ejercicio".  Esto irá calculando cada uno de los ejercicios de tu rutina. </p>
+            
+            </p>Para finalizar, cuando ya hayas generado varios ejercicios, apretá el boton "ver rutina", para que se muestre tu rutina completa con toda la lista de ejercicios. </p>
+            </div>
+            <div class="col col-md-1">
+            
+            </div>
+          </div>
+      </div>
 
-        </form>
+
+    <div>
+    
+        <div class="row">
+            <div class="col col-md-4">
+            
+            </div>
+            <div class="col col-md-4">
+                <form id="formulario">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="iNombre" aria-describedby="emailHelp">
+                      </div>
+                 
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Edad</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label"> Nivel (Principiante  | Intermedio | Avanzado):</label>
+                        <input type="text" class="form-control" id="idNivel" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Recordá escribir la palabra comenzando en mayuscula.</div>
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Tren ( Inferior | Core | Superior ):</label>
+                        <input type="text" class="form-control" id="idTren" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Recordá escribir la palabra comenzando en mayuscula.</div>
+                      </div>
+                   
+                    <button type="submit" id="btnSubmit" class="btn btn-primary">Confirmar ejercicio</button>
+                      
+                    <button type="button" id="btnMostrar"  class="btn btn-primary">Ver rutina</button>
+                  </form>
+            </div>
+            <div class="col col-md-4">
+            
+            </div>
+          </div>
+
         <div id="ejercicio">
+
 
         </div>
         <div id="rutina">
@@ -37,5 +84,6 @@
         </div>
     </div>
  <script src="./scripts.js"> </script>   
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

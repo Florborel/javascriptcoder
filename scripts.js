@@ -23,11 +23,12 @@ class Ejercicio {
 let rutina = [];
 
 let miFormulario = document.querySelector("#formulario");
-let opcion = miFormulario.children[7].value;
-let nivel = miFormulario.children[5].value;
+let opcion = document.querySelector("#idTren");
+let nivel = document.querySelector("#idNivel");
 let inputNombre = document.querySelector("#iNombre");
 let contenedor = document.querySelector("#ejercicio");
 let contenedorRutina = document.querySelector("#rutina");
+let btnMostrar = document.querySelector("#btnMostrar");
 
 miFormulario.addEventListener("submit", mostrarRutina);
 btnMostrar.addEventListener("click", verRutina);
@@ -43,9 +44,14 @@ function agregarAlDom(ejercicio){
 
 function verRutina(){
 
- let rutinaResultado = localStorage.getItem("rutina");
- for (const ejercicio of rutinaResultado){
-    contenedorRutina.innerHTML = contenedorRutina.innerHTML + " " + ejercicio.mostrarEjercicio();
+ let rutinaResultado = localStorage.getItem("rutinaDeChu");
+ 
+ contenedorRutina.innerHTML = "<h3> " + inputNombre.value + " la rutina completa es la siguiente: </h3>"
+
+ let rutinaArray = rutinaResultado.split(",");
+ for (const ejercicio of rutinaArray){
+    
+    contenedorRutina.innerHTML = contenedorRutina.innerHTML + " <p>" + ejercicio + "</p>";
  }
   
  
@@ -53,11 +59,12 @@ function verRutina(){
 
 
 
- function mostrarRutina(){
-    
+ function mostrarRutina(e){
+    e.preventDefault();
+
     let ejercicio;
-    opcion = miFormulario.children[7].value;
-    nivel = miFormulario.children[5].value;
+    opcion = document.querySelector("#idTren").value;
+    nivel = document.querySelector("#idNivel").value;
 
     if (opcion=== "Inferior" ) {
 
@@ -66,24 +73,24 @@ function verRutina(){
                     ejercicio=new Ejercicio (4,10,"sentadillas","piernas");
                     alert(ejercicio.mostrarEjercicio());
                     agregarAlDom(ejercicio.mostrarEjercicio());
-                    rutina.push(ejercicio);
+                    rutina.push(ejercicio.mostrarEjercicio());
                     console.log(rutina);
-                    localstorage.setItem("rutina", rutina);
+                    localStorage.setItem("rutinaDeChu", rutina);
                     
                     break;
 
                  case "Intermedio":
                     ejercicio=new Ejercicio (4,20,"sentadillas","piernas");
                     agregarAlDom(ejercicio.mostrarEjercicio());
-                    rutina.push(ejercicio);
-                    localstorage.setItem("rutina", rutina);
+                    rutina.push(ejercicio.mostrarEjercicio());
+                    localStorage.setItem("rutinaDeChu", rutina);
                     break;
 
                 case "Avanzado":
                     ejercicio=new Ejercicio (4,30,"sentadillas","piernas");
                     agregarAlDom(ejercicio.mostrarEjercicio());
-                    rutina.push(ejercicio);
-                    localstorage.setItem("rutina", rutina);
+                    rutina.push(ejercicio.mostrarEjercicio());
+                    localStorage.setItem("rutinaDeChu", rutina);
                     break;
 
                     default:
@@ -94,29 +101,29 @@ function verRutina(){
          }
 
 
-    } else if (opcion==="Core"){
+    } else if (opcion==="Superior"){
 
         switch (nivel) {
 
             case "Principiante":
                 ejercicio=new Ejercicio (4,10,"curl de biceps","brazos");
                 agregarAlDom(ejercicio.mostrarEjercicio());
-                rutina.push(ejercicio);
-                localstorage.setItem("rutina", rutina);
+                rutina.push(ejercicio.mostrarEjercicio());
+                localStorage.setItem("rutinaDeChu", rutina);
                 break;
 
              case "Intermedio":
                 ejercicio=new Ejercicio (4,20,"curl de biceps","brazos");
                 agregarAlDom(ejercicio.mostrarEjercicio());
-                rutina.push(ejercicio);
-                localstorage.setItem("rutina", rutina);
+                rutina.push(ejercicio.mostrarEjercicio());
+                localStorage.setItem("rutinaDeChu", rutina);
                 break;
 
             case "Avanzado":
                 ejercicio=new Ejercicio (4,30,"curl de biceps","brazos");
                 agregarAlDom(ejercicio.mostrarEjercicio());
-                rutina.push(ejercicio);
-                localstorage.setItem("rutina", rutina);
+                rutina.push(ejercicio.mostrarEjercicio());
+                localStorage.setItem("rutinaDeChu", rutina);
                 break;
 
                 default:
@@ -128,29 +135,29 @@ function verRutina(){
 
 
     }
-    else if (opcion=== "Superior"){
+    else if (opcion=== "Core"){
 
         switch (nivel) {
 
             case "Principiante":
                 ejercicio=new Ejercicio (4,10,"abs cortos","abdominales");
                 agregarAlDom(ejercicio.mostrarEjercicio());
-                rutina.push(ejercicio);
-                localstorage.setItem("rutina", rutina);
+                rutina.push(ejercicio.mostrarEjercicio());
+                localStorage.setItem("rutinaDeChu", rutina);
                 break;
 
              case "Intermedio":
                 ejercicio=new Ejercicio (4,20,"abs cortos","abdominales");
                 agregarAlDom(ejercicio.mostrarEjercicio());
                 rutina.push(ejercicio);
-                localstorage.setItem("rutina", rutina);
+                localStorage.setItem("rutinaDeChu", rutina);
                 break;
 
             case "Avanzado":
                 ejercicio=new Ejercicio (4,30,"abs cortos","abdominales");
                 agregarAlDom(ejercicio.mostrarEjercicio());
-                rutina.push(ejercicio);
-                localstorage.setItem("rutina", rutina);
+                rutina.push(ejercicio.mostrarEjercicio());
+                localStorage.setItem("rutinaDeChu", rutina);
                 break;
 
                 default:
