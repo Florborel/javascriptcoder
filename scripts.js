@@ -61,7 +61,7 @@ function verRutina(){
 
  function mostrarRutina(e){
     e.preventDefault();
-
+   
     let ejercicio;
     opcion = document.querySelector("#idTren").value;
     nivel = document.querySelector("#idNivel").value;
@@ -71,7 +71,7 @@ function verRutina(){
          switch(nivel) {
                 case "Principiante":
                     ejercicio=new Ejercicio (4,10,"sentadillas","piernas");
-                    alert(ejercicio.mostrarEjercicio());
+                
                     agregarAlDom(ejercicio.mostrarEjercicio());
                     rutina.push(ejercicio.mostrarEjercicio());
                     console.log(rutina);
@@ -94,8 +94,8 @@ function verRutina(){
                     break;
 
                     default:
-                        alert("invalid0")
-                        break
+                        swal("El nivel ingresado es invalido.");
+                        return;
 
 
          }
@@ -127,8 +127,9 @@ function verRutina(){
                 break;
 
                 default:
-                    alert("invalid1")
-                    break;
+                    swal("El nivel ingresado es invalido.");
+                    return;
+                
 
 
      }
@@ -161,19 +162,24 @@ function verRutina(){
                 break;
 
                 default:
-                    alert("invalid2")
-                    break;
+                    swal("El nivel ingresado es invalido.");
+                    return;
 
 
      };
 
 
     } else{   
-        alert("invalidooo");
-        
+        swal("La opción ingresada es invalida.");
+        return;
     }
 
- 
+    swal({
+        title: "Excelente!",
+        text: "Tu ejercicio se creo correctamente",
+        icon: "success",
+        button: "Aceptar",
+      });
  }
 /*
 let opcion2="inicio";
