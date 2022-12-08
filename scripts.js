@@ -29,9 +29,13 @@ let inputNombre = document.querySelector("#iNombre");
 let contenedor = document.querySelector("#ejercicio");
 let contenedorRutina = document.querySelector("#rutina");
 let btnMostrar = document.querySelector("#btnMostrar");
+let btnMejoresRutinas = document.querySelector("#btnMejoresRutinas");
+let contenedorMejoresRutinas = document.querySelector("#mejoresRutinas");
+
 
 miFormulario.addEventListener("submit", mostrarRutina);
 btnMostrar.addEventListener("click", verRutina);
+btnMejoresRutinas.addEventListener("click", mejoresRutinas);
 
 inputNombre.focus();
 
@@ -40,7 +44,28 @@ function agregarAlDom(ejercicio){
                             "<p>" + ejercicio + "</p>";
 }
 
+function mejoresRutinas() {
 
+ fetch ("https://florborel.github.io/rutinas.json")
+ .then((response) => response.json())
+ .then((data) => {
+    console.log(data);
+    data.forEach((mejorRutina)=>{
+        
+
+        contenedorMejoresRutinas.innerHTML += "<h3>" + mejorRutina.nombre + "</h3>" +
+                                              "<p> Ranking: "  + mejorRutina.estrellas + "/5" + "</p>" +
+                                              "<p> Nivel: " + mejorRutina.nivel+ "</p>" +
+                                              "<p> Rutina: " + mejorRutina.rutina.toString() + "</p>" 
+                           
+    });
+    
+
+ })
+}
+
+    
+ 
 
 function verRutina(){
 

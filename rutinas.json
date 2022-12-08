@@ -1,0 +1,26 @@
+[
+    { 
+        "nombre": "Pampita",
+        "estrellas": 4,
+        "nivel": "Avanzado",
+        "rutina": ["30x4 sentadillas", "30x4 abdominales enteros", "1 minuto plancha", "30x4 curl de biceps"]
+
+    },
+
+    { 
+        "nombre": "Messi",
+        "estrellas": 5,
+        "nivel": "Avanzado",
+        "rutina": ["30x4 estocadas", "30x4 abdominales cortos", "2 minuto plancha", "15x3 vuelos laterales"]
+
+    },
+
+    {
+        "nombre": "Tocalino",
+        "estrellas": 3,
+        "nivel": "Intermedio",
+        "rutina": ["30x4 sillon de cuadriceps", "30x4 abdominales cruzados", "45 segundos plancha", "15x3 press militar"]
+
+    }
+
+]
